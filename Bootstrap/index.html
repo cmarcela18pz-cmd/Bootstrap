@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Descubre México: encuentra destinos, experiencias y consejos para planear tu próximo viaje.">
+    <title>Descubre México | Tu próxima aventura</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --ink: #18332f;
+        --green: #176b55;
+        --orange: #ed8154;
+        --sand: #f8f6f0;
+      }
+
+      body {
+        color: var(--ink);
+        font-family: "DM Sans", sans-serif;
+      }
+
+      h1, h2, h3, .brand-name {
+        font-family: "Playfair Display", Georgia, serif;
+      }
+
+      .navbar {
+        background: rgba(255, 255, 255, .97);
+      }
+
+      .brand-mark {
+        align-items: center;
+        background: var(--green);
+        border-radius: 50%;
+        color: #fff;
+        display: inline-flex;
+        font-size: .9rem;
+        height: 2.35rem;
+        justify-content: center;
+        margin-right: .55rem;
+        width: 2.35rem;
+      }
+
+      .nav-link {
+        color: var(--ink);
+        font-size: .94rem;
+        font-weight: 600;
+      }
+
+      .nav-link:hover, .nav-link:focus {
+        color: var(--green);
+      }
+
+      .btn-explore {
+        background: var(--green);
+        border: 1px solid var(--green);
+        border-radius: 50rem;
+        color: #fff;
+        font-weight: 600;
+        padding: .75rem 1.35rem;
+      }
+
+      .btn-explore:hover, .btn-explore:focus {
+        background: #105340;
+        border-color: #105340;
+        color: #fff;
+      }
+
+      .hero {
+        align-items: center;
+        background:
+          linear-gradient(90deg, rgba(13, 37, 32, .79) 0%, rgba(13, 37, 32, .48) 48%, rgba(13, 37, 32, .08) 100%),
+          url("https://images.unsplash.com/photo-1518638150340-f706e86654de?auto=format&fit=crop&w=2200&q=85") center 54% / cover;
+        color: #fff;
+        display: flex;
+        min-height: 650px;
+      }
+
+      .hero-content {
+        max-width: 690px;
+        padding-bottom: 3rem;
+        padding-top: 3rem;
+      }
+
+      .eyebrow {
+        color: #f4a77f;
+        font-size: .78rem;
+        font-weight: 700;
+        letter-spacing: .16em;
+        text-transform: uppercase;
+      }
+
+      .hero h1 {
+        font-size: clamp(3rem, 7vw, 5.6rem);
+        line-height: 1.03;
+      }
+
+      .hero p {
+        color: rgba(255, 255, 255, .88);
+        font-size: 1.1rem;
+        max-width: 540px;
+      }
+
+      .hero .btn-explore {
+        background: #fff;
+        border-color: #fff;
+        color: var(--green);
+      }
+
+      .hero .btn-explore:hover {
+        background: #f1eee6;
+        border-color: #f1eee6;
+      }
+
+      .hero-note {
+        border-left: 1px solid rgba(255, 255, 255, .65);
+        font-size: .85rem;
+        line-height: 1.5;
+        padding-left: 1rem;
+      }
+
+      .section-space {
+        padding-bottom: 5.5rem;
+        padding-top: 5.5rem;
+      }
+
+      .section-heading {
+        font-size: clamp(2rem, 4vw, 3rem);
+      }
+
+      .text-muted-custom {
+        color: #687873;
+      }
+
+      .destination-card {
+        border: 0;
+        border-radius: 1rem;
+        height: 100%;
+        overflow: hidden;
+        transition: transform .2s ease, box-shadow .2s ease;
+      }
+
+      .destination-card:hover {
+        box-shadow: 0 1rem 2.5rem rgba(24, 51, 47, .13);
+        transform: translateY(-5px);
+      }
+
+      .destination-card img {
+        height: 245px;
+        object-fit: cover;
+      }
+
+      .destination-card .card-body {
+        padding: 1.4rem;
+      }
+
+      .destination-label {
+        color: var(--green);
+        font-size: .75rem;
+        font-weight: 700;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+      }
+
+      .arrow-link {
+        color: var(--green);
+        font-size: .92rem;
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .arrow-link:hover {
+        color: #105340;
+      }
+
+      .experience-section {
+        background: var(--sand);
+      }
+
+      .experience-image {
+        border-radius: 1.25rem;
+        min-height: 430px;
+        object-fit: cover;
+        width: 100%;
+      }
+
+      .experience-item {
+        border-bottom: 1px solid #e5e4db;
+        padding: 1rem 0;
+      }
+
+      .experience-icon {
+        align-items: center;
+        background: #e4eee8;
+        border-radius: 50%;
+        color: var(--green);
+        display: inline-flex;
+        flex: 0 0 2.8rem;
+        font-size: 1.2rem;
+        height: 2.8rem;
+        justify-content: center;
+        width: 2.8rem;
+      }
+
+      .quote-section {
+        background: var(--green);
+        color: #fff;
+      }
+
+      .quote-section blockquote {
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: clamp(1.7rem, 3vw, 2.6rem);
+        line-height: 1.35;
+        margin: 0 auto;
+        max-width: 850px;
+      }
+
+      .newsletter {
+        background: #f2e8d8;
+        border-radius: 1.25rem;
+      }
+
+      .newsletter .form-control {
+        border: 1px solid #d6d3ca;
+        border-radius: 50rem;
+        min-height: 3.2rem;
+        padding-left: 1.2rem;
+      }
+
+      footer {
+        background: #142d29;
+        color: rgba(255, 255, 255, .76);
+      }
+
+      footer a {
+        color: rgba(255, 255, 255, .85);
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        color: #fff;
+      }
+
+      @media (max-width: 767.98px) {
+        .hero {
+          background-position: 58% center;
+          min-height: 590px;
+        }
+
+        .section-space {
+          padding-bottom: 4rem;
+          padding-top: 4rem;
+        }
+
+        .experience-image {
+          min-height: 300px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg sticky-top shadow-sm" aria-label="Navegación principal">
+      <div class="container py-2">
+        <a class="navbar-brand d-flex align-items-center" href="#inicio" aria-label="Descubre México, inicio">
+          <span class="brand-mark" aria-hidden="true">M</span>
+          <span class="brand-name fw-bold">descubre<span class="text-success">méxico</span></span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavigation" aria-controls="mainNavigation" aria-expanded="false" aria-label="Abrir menú">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNavigation">
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+            <li class="nav-item"><a class="nav-link" href="#destinos">Destinos</a></li>
+            <li class="nav-item"><a class="nav-link" href="#experiencias">Experiencias</a></li>
+            <li class="nav-item"><a class="nav-link" href="#inspiracion">Inspiración</a></li>
+            <li class="nav-item ms-lg-2"><a class="btn btn-explore" href="#destinos">Planea tu viaje</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <section class="hero" id="inicio">
+        <div class="container">
+          <div class="hero-content">
+            <span class="eyebrow">Un país, mil maneras de sentir</span>
+            <h1 class="mt-3 mb-4">México se vive<br>con todos los sentidos.</h1>
+            <p class="mb-4">Del primer café al amanecer a la última canción de la noche: encuentra ese viaje que se queda contigo.</p>
+            <div class="d-flex flex-wrap align-items-center gap-4">
+              <a class="btn btn-explore" href="#destinos">Encuentra tu destino <span aria-hidden="true">→</span></a>
+              <span class="hero-note">Paisajes que sorprenden.<br>Historias que te acompañan.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-space" id="destinos">
+        <div class="container">
+          <div class="row align-items-end mb-4 mb-lg-5">
+            <div class="col-lg-7">
+              <span class="eyebrow">¿Por dónde empezamos?</span>
+              <h2 class="section-heading mt-2 mb-2">Un destino para cada versión de ti</h2>
+              <p class="text-muted-custom mb-0">Déjate llevar por lugares que tienen algo especial que contar.</p>
+            </div>
+            <div class="col-lg-5 text-lg-end mt-3 mt-lg-0">
+              <a class="arrow-link" href="#experiencias">Ver todas las experiencias <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+              <article class="card destination-card shadow-sm">
+                <img src="https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?auto=format&fit=crop&w=900&q=80" class="card-img-top" alt="Casas coloridas junto a un canal en Xochimilco">
+                <div class="card-body">
+                  <span class="destination-label">Ciudad de México</span>
+                  <h3 class="h4 mt-2">Una ciudad que nunca se acaba</h3>
+                  <p class="text-muted-custom mb-3">Mercados, museos y sobremesas que se alargan sin mirar el reloj.</p>
+                  <a href="#experiencias" class="arrow-link">Descubrir la ciudad <span aria-hidden="true">→</span></a>
+                </div>
+              </article>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <article class="card destination-card shadow-sm">
+                <img src="https://images.unsplash.com/photo-1504730549382-8c5d2a3b2a95?auto=format&fit=crop&w=900&q=80" class="card-img-top" alt="Playa tropical de arena blanca y agua turquesa">
+                <div class="card-body">
+                  <span class="destination-label">Riviera Maya</span>
+                  <h3 class="h4 mt-2">El Caribe a tu propio ritmo</h3>
+                  <p class="text-muted-custom mb-3">Agua transparente, tardes tranquilas y aventuras bajo la superficie.</p>
+                  <a href="#experiencias" class="arrow-link">Explorar la costa <span aria-hidden="true">→</span></a>
+                </div>
+              </article>
+            </div>
+            <div class="col-md-6 col-lg-4">
+              <article class="card destination-card shadow-sm">
+                <img src="https://images.unsplash.com/photo-1512813195386-6cf811ad3542?auto=format&fit=crop&w=900&q=80" class="card-img-top" alt="Arquitectura colonial y fachadas coloridas de Guanajuato">
+                <div class="card-body">
+                  <span class="destination-label">Guanajuato</span>
+                  <h3 class="h4 mt-2">Calles para perderse y volver</h3>
+                  <p class="text-muted-custom mb-3">Plazas llenas de vida, callejones con historia y noches bajo las estrellas.</p>
+                  <a href="#experiencias" class="arrow-link">Pasear por Guanajuato <span aria-hidden="true">→</span></a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="experience-section section-space" id="experiencias">
+        <div class="container">
+          <div class="row align-items-center g-5">
+            <div class="col-lg-6">
+              <img class="experience-image" src="https://images.unsplash.com/photo-1512813195386-6cf811ad3542?auto=format&fit=crop&w=1200&q=85" alt="Calle empedrada y edificios de colores al atardecer">
+            </div>
+            <div class="col-lg-6">
+              <span class="eyebrow">Más que un viaje</span>
+              <h2 class="section-heading mt-2 mb-3">Lo mejor sucede cuando bajas el ritmo.</h2>
+              <p class="text-muted-custom mb-4">Prueba algo nuevo, conoce a quienes hacen especial cada lugar y deja espacio para lo inesperado.</p>
+              <div class="experience-item d-flex gap-3">
+                <span class="experience-icon" aria-hidden="true">✦</span>
+                <div>
+                  <h3 class="h5 mb-1">Sabores con historia</h3>
+                  <p class="text-muted-custom mb-0">Recetas, ingredientes locales y mesas para compartir.</p>
+                </div>
+              </div>
+              <div class="experience-item d-flex gap-3">
+                <span class="experience-icon" aria-hidden="true">⌁</span>
+                <div>
+                  <h3 class="h5 mb-1">Naturaleza sin prisa</h3>
+                  <p class="text-muted-custom mb-0">Selvas, montañas y costas que invitan a respirar profundo.</p>
+                </div>
+              </div>
+              <div class="experience-item d-flex gap-3">
+                <span class="experience-icon" aria-hidden="true">◎</span>
+                <div>
+                  <h3 class="h5 mb-1">Cultura que se comparte</h3>
+                  <p class="text-muted-custom mb-0">Tradiciones vivas, arte y encuentros que dejan huella.</p>
+                </div>
+              </div>
+              <a href="#inspiracion" class="btn btn-explore mt-4">Inspírate para viajar</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="quote-section py-5" id="inspiracion">
+        <div class="container text-center py-4">
+          <span class="eyebrow">Llévate el momento</span>
+          <blockquote class="mt-3">“Viajar por México es descubrir que cada camino tiene un sabor, una voz y una historia propia.”</blockquote>
+          <p class="mt-3 mb-0 text-white-50">Y siempre hay una razón para volver.</p>
+        </div>
+      </section>
+
+      <section class="section-space">
+        <div class="container">
+          <div class="newsletter p-4 p-md-5">
+            <div class="row align-items-center g-4">
+              <div class="col-lg-6">
+                <span class="eyebrow">Una nota de viaje</span>
+                <h2 class="h2 mt-2 mb-2">Un poco de México en tu correo.</h2>
+                <p class="text-muted-custom mb-0">Recibe ideas, destinos y consejos para tu próxima aventura.</p>
+              </div>
+              <div class="col-lg-6">
+                <form class="row g-2" action="#" method="get">
+                  <div class="col-sm">
+                    <label class="visually-hidden" for="emailAddress">Tu correo electrónico</label>
+                    <input class="form-control" type="email" id="emailAddress" placeholder="Tu correo electrónico" required>
+                  </div>
+                  <div class="col-sm-auto">
+                    <button class="btn btn-explore w-100" type="submit">Quiero recibirla</button>
+                  </div>
+                </form>
+                <small class="text-muted-custom d-block mt-2">Sin spam. Solo inspiración para viajar.</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="py-4">
+      <div class="container">
+        <div class="row align-items-center gy-3">
+          <div class="col-md">
+            <span class="brand-name fw-bold text-white">descubre méxico</span>
+            <span class="small ms-2">· Viaja cerca, siente lejos.</span>
+          </div>
+          <div class="col-md-auto">
+            <nav class="d-flex flex-wrap gap-3 small" aria-label="Enlaces del pie de página">
+              <a href="#destinos">Destinos</a>
+              <a href="#experiencias">Experiencias</a>
+              <a href="#inicio">Volver arriba ↑</a>
+            </nav>
+          </div>
+          <div class="col-12 text-center text-md-start">
+            <small>© 2026 Descubre México. Sitio demostrativo para fines educativos.</small>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
